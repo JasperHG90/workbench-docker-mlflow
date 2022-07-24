@@ -5,6 +5,9 @@ on:
     branches:
       - 'main'
 
+env:
+  APP_NAME: workbench-mlflow
+
 jobs:
   docker:
     environment: docker_hub
@@ -27,4 +30,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/workbench-mlflow:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/$APP_NAME:latest
