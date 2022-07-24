@@ -30,4 +30,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.APP_NAME }}:${COMMIT_SHA:0:7}"
+          tags: "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.APP_NAME }}:${{ env.SHORT_COMMIT_SHA }}"
+        env:
+          SHORT_COMMIT_SHA: ${COMMIT_SHA:0:7}
